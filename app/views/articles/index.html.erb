@@ -6,7 +6,7 @@
 
   <p>Our blog has <strong><%= Article.public_count %></strong> public article(s) and counting!</p>
 
-  <ul>
+  <ul class="list_of_posts">
     <% @articles.each do |article| %>
       <% unless article.archived? %>
         <li>
