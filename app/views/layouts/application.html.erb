@@ -14,7 +14,30 @@
 
   <body>
     <main style="margin: auto; width: 800px; max-width: 100%; padding: 20px 0;">
+      <% if Current.user %>
+        <div class="d-flex justify-content-between">
+          <div>Logged in as: <strong><%= Current.user.email %></strong></div>
+          <div><strong><%= button_to "Logout", logout_path, method: :delete, class: "btn btn-danger" %></strong></div>
+        </div>
+        <hr>
+      <% end %>
+
       <%= yield %>
+
+      <div class="my-5">
+      <h3>Actions</h3>
+      <p>
+        <a href="<%= articles_path %>">All articles</a>
+        <% if Current.user %>
+          | <a href="<%= new_article_path %>">New article</a>
+        <% end %>
+        <% if !Current.user %>
+          | <a href="<%= sign_up_path %>">Sign Up</a>
+          | <a href="<%= log_in_path %>">Log In</a>
+        <% end %>
+      </p>      
+      </div>
+
     </main>
   </body>
 </html>
