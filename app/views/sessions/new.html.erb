@@ -4,14 +4,16 @@
     <% if Current.user %>
         <p>You should sign out before you can log in with another account.</p>
     <% else %>
-        <h3>Log In</h3>
-        <%= form_with url: log_in_path do |form| %>
+        <div class="w-50 m-auto">
+            <h3>Log In</h3>
+            <%= form_with url: log_in_path do |form| %>
 
-        <%= form.text_field :email, placeholder: "E-mail", class: "my-1 form-control" %>
-        <%= form.password_field :password, placeholder: "Password", class: "my-2 form-control" %>
-        <%= form.submit "Login", class: "btn btn-primary d-block w-100" %>
-        
-        <% end %>
+            <%= form.text_field :email, placeholder: "E-mail", class: "my-1 form-control" %>
+            <%= form.password_field :password, placeholder: "Password", class: "my-2 form-control" %>
+            <%= form.submit "Login", class: "btn btn-primary d-block w-100" %>
+            
+            <% end %>        
+        </div>
     <% end %>
 
 </div>
